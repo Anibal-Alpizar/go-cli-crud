@@ -1,7 +1,12 @@
 [
-  {
-    "id": 1,
-    "name": "some task",
-    "complete": false
-  }
+    {
+        "id": 1,
+        "name": "some task",
+        "complete": false
+    },
+    {
+        "id": 2,
+        "name": "some other task",
+        "complete": true
+    }
 ]

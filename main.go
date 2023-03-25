@@ -39,6 +39,15 @@ func main() {
 	} else {
 		taskss = []tasks.Task{}
 	}
+	if len(os.Args) < 2 {
+		printUsage()
+	}
+	switch os.Args[1] {
+	case "list":
+		tasks.ListTasks(taskss)
+	}
+}
 
-	fmt.Println(taskss)
+func printUsage() {
+	fmt.Println("Uso: go-clid-crud [list|add|complete|delete]")
 }
