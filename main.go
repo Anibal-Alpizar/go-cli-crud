@@ -44,6 +44,7 @@ func main() {
 	}
 	if len(os.Args) < 2 {
 		printUsage()
+		return
 	}
 	switch os.Args[1] {
 	case "list":
@@ -79,6 +80,8 @@ func main() {
 		}
 		taskss = tasks.CompleteTask(taskss, id)
 		tasks.SaveTasks(file, taskss)
+	default:
+		printUsage()
 	}
 }
 

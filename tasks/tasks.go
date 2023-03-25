@@ -48,7 +48,7 @@ func DeleteTask(tasks []Task, id int) []Task {
 func CompleteTask(tasks []Task, id int) []Task {
 	for i, task := range tasks {
 		if task.ID == id {
-			tasks[i].Complete = true
+			tasks[i].Complete = !tasks[i].Complete
 			break
 		}
 	}
