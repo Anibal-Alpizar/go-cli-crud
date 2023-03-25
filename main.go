@@ -1,10 +1,12 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"io"
 	"os"
+	"strings"
 
 	"github.com/anibal-alpizar/go-cli-crud/tasks"
 )
@@ -45,6 +47,13 @@ func main() {
 	switch os.Args[1] {
 	case "list":
 		tasks.ListTasks(taskss)
+	case "add":
+		reader := bufio.NewReader(os.Stdin)
+		fmt.Println("Nombre de la tarea:")
+		name, _ := reader.ReadString('\n')
+		name = strings.TrimSpace(name)
+		taskss = tasks.AddTask(taskss, name)
+		tasks.SaveTasks(file, taskss)
 	}
 }
 
